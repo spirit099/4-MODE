@@ -1,14 +1,16 @@
 ﻿#pragma strict
 
 var speed : float = 8.0f;
+var atk : int = 1 ;
 
 function Update () {
-	rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
+//	rigidbody2D.velocity = new Vector2(speed, 0);
+    transform.position.x += speed ;
 }
 
-function OnCollisionEnter2D (coll : Collision2D) {
-	if(coll.collider.tag == "EnemyTower") {
-		coll.collider.GetComponent(Tower).hp -= 1;
+function OnTriggerEnter2D (other : Collider2D) {
+	if(other.tag == "EnemyTower") {
+		other.GetComponent(tower).LostHP(atk);
 		Destroy(gameObject);
 	}
 }

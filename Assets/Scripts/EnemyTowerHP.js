@@ -4,7 +4,7 @@ import UnityEngine.UI ;
 var hp : int = 100 ;
 
 function Update () {
-         GetComponent(text).text = hp.ToString
+         GetComponent(Text).text = hp.ToString() ;
 }
 
 function UI_LostHP (amount : int) {
